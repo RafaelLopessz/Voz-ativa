@@ -1,0 +1,1930 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#315dcc">
+
+<title>Voz Ativa | Colégio Santo Antônio</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --azul: #4f8cff;
+    --azul-escuro: #2859b8;
+    --azul-claro: #eaf2ff;
+    --roxo: #7067ff;
+    --roxo-claro: #f0eeff;
+    --verde: #27ae60;
+    --vermelho: #e74c3c;
+    --amarelo: #f1b928;
+    --fundo: #f4f7ff;
+    --texto: #24344d;
+    --cinza: #718096;
+    --branco: #ffffff;
+    --borda: #e2e9f5;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:
+        radial-gradient(circle at 0% 0%, rgba(79,140,255,.16), transparent 30%),
+        radial-gradient(circle at 100% 100%, rgba(112,103,255,.13), transparent 30%),
+        var(--fundo);
+    color: var(--texto);
+    min-height: 100vh;
+}
+
+/* ================= TOPO ================= */
+
+header {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,.16), transparent 25%),
+        radial-gradient(circle at 85% 80%, rgba(255,255,255,.13), transparent 25%),
+        linear-gradient(135deg, #2859b8, #7067ff);
+
+    color: white;
+    padding: 42px 20px 38px;
+    text-align: center;
+
+    box-shadow: 0 12px 35px rgba(40,89,184,.22);
+}
+
+header::before,
+header::after {
+    content: "";
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.07);
+}
+
+header::before {
+    top: -90px;
+    left: -50px;
+}
+
+header::after {
+    bottom: -110px;
+    right: -40px;
+}
+
+.logo {
+    position: relative;
+    z-index: 1;
+
+    width: 78px;
+    height: 78px;
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 38px;
+
+    background: rgba(255,255,255,.16);
+    border: 1px solid rgba(255,255,255,.25);
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.12),
+        inset 0 1px 1px rgba(255,255,255,.25);
+
+    backdrop-filter: blur(10px);
+
+    animation: flutuar 4s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+}
+
+header h1 {
+    position: relative;
+    z-index: 1;
+
+    margin-top: 14px;
+
+    font-size: 38px;
+    letter-spacing: -1px;
+}
+
+header p {
+    position: relative;
+    z-index: 1;
+
+    margin-top: 7px;
+
+    font-size: 16px;
+    opacity: .92;
+}
+
+.school {
+    position: relative;
+    z-index: 1;
+
+    display: inline-block;
+
+    margin-top: 16px;
+
+    padding: 8px 14px;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,.13);
+    border: 1px solid rgba(255,255,255,.18);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    backdrop-filter: blur(8px);
+}
+
+/* ================= MENU ================= */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    display: flex;
+    gap: 7px;
+
+    padding: 10px 14px;
+
+    overflow-x: auto;
+
+    background: rgba(255,255,255,.94);
+    border-bottom: 1px solid var(--borda);
+
+    box-shadow: 0 5px 20px rgba(40,60,100,.08);
+
+    backdrop-filter: blur(15px);
+
+    scrollbar-width: none;
+}
+
+nav::-webkit-scrollbar {
+    display: none;
+}
+
+nav button {
+    position: relative;
+
+    flex: 0 0 auto;
+
+    padding: 11px 15px;
+
+    border: 1px solid transparent;
+    border-radius: 12px;
+
+    background: #f3f6fb;
+    color: #5c6d84;
+
+    font-weight: 650;
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        color .2s ease,
+        box-shadow .2s ease;
+}
+
+nav button:hover {
+    transform: translateY(-1px);
+    background: #eaf0ff;
+    color: var(--azul-escuro);
+}
+
+nav button.active {
+    background: linear-gradient(135deg, var(--azul), var(--roxo));
+    color: white;
+
+    box-shadow: 0 5px 15px rgba(79,140,255,.25);
+}
+
+nav button.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 25%;
+    right: 25%;
+    bottom: -6px;
+
+    height: 3px;
+
+    border-radius: 10px;
+
+    background: white;
+}
+
+/* ================= CONTEÚDO ================= */
+
+.container {
+    width: 100%;
+    max-width: 950px;
+
+    margin: 35px auto;
+
+    padding: 0 18px 50px;
+}
+
+.tab {
+    display: none;
+
+    animation: aparecer .4s ease;
+}
+
+.tab.active {
+    display: block;
+}
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 90% 10%, rgba(112,103,255,.13), transparent 28%),
+        linear-gradient(135deg, #ffffff, #f3f6ff);
+
+    padding: 42px 28px;
+
+    border: 1px solid var(--borda);
+    border-radius: 26px;
+
+    text-align: center;
+
+    box-shadow:
+        0 15px 40px rgba(50,80,120,.09),
+        0 2px 5px rgba(50,80,120,.04);
+
+    margin-bottom: 22px;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    right: -50px;
+    bottom: -60px;
+
+    border-radius: 50%;
+
+    background: rgba(79,140,255,.08);
+}
+
+.hero-icon {
+    position: relative;
+    z-index: 1;
+
+    font-size: 58px;
+
+    margin-bottom: 5px;
+}
+
+.hero h2 {
+    position: relative;
+    z-index: 1;
+
+    margin: 10px 0 9px;
+
+    font-size: 30px;
+    letter-spacing: -.5px;
+}
+
+.hero p {
+    position: relative;
+    z-index: 1;
+
+    max-width: 680px;
+    margin: auto;
+
+    color: var(--cinza);
+
+    line-height: 1.7;
+}
+
+/* ================= CARDS ================= */
+
+.card,
+.small-card {
+    background: rgba(255,255,255,.95);
+
+    border: 1px solid var(--borda);
+
+    box-shadow: 0 8px 25px rgba(50,80,120,.07);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.card {
+    padding: 27px;
+
+    border-radius: 21px;
+
+    margin-bottom: 20px;
+}
+
+.card:hover,
+.small-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 14px 30px rgba(50,80,120,.10);
+}
+
+.card h2 {
+    margin-bottom: 12px;
+}
+
+.card h3 {
+    margin-bottom: 9px;
+}
+
+.card p {
+    line-height: 1.7;
+    color: #53657d;
+}
+
+.card ul,
+.card ol {
+    padding-left: 22px;
+    margin-top: 12px;
+}
+
+.card li {
+    margin: 12px 0;
+    line-height: 1.6;
+}
+
+/* ================= GRID ================= */
+
+.grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 20px;
+}
+
+.small-card {
+    position: relative;
+
+    padding: 23px;
+
+    border-radius: 19px;
+}
+
+.small-card .icon {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 13px;
+
+    border-radius: 15px;
+
+    background: var(--azul-claro);
+
+    font-size: 27px;
+}
+
+.small-card h3 {
+    margin-bottom: 7px;
+}
+
+.small-card p {
+    color: var(--cinza);
+    line-height: 1.6;
+}
+
+/* ================= CORES ================= */
+
+.blue {
+    border-left: 5px solid var(--azul);
+}
+
+.green {
+    border-left: 5px solid var(--verde);
+}
+
+.red {
+    border-left: 5px solid var(--vermelho);
+}
+
+.yellow {
+    border-left: 5px solid var(--amarelo);
+}
+
+.purple {
+    border-left: 5px solid var(--roxo);
+}
+
+/* ================= ACOLHIMENTO ================= */
+
+.acolhimento {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 100% 0%, rgba(112,103,255,.12), transparent 30%),
+        linear-gradient(135deg, #edf5ff, #f4f0ff);
+
+    border: 1px solid #dbe6ff;
+    border-left: 5px solid var(--azul);
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    margin-bottom: 20px;
+
+    box-shadow: 0 8px 25px rgba(50,80,120,.06);
+}
+
+.acolhimento h3 {
+    margin-bottom: 9px;
+    color: var(--azul-escuro);
+}
+
+.acolhimento p {
+    color: #53657d;
+    line-height: 1.7;
+}
+
+.frase {
+    margin-top: 12px;
+
+    font-size: 19px;
+    font-weight: 700;
+
+    color: var(--azul-escuro);
+}
+
+/* ================= ALERTA ================= */
+
+.alerta {
+    background: linear-gradient(135deg, #fff9df, #fffdf3);
+
+    border: 1px solid #f5e6a5;
+    border-left: 5px solid var(--amarelo);
+
+    border-radius: 18px;
+
+    padding: 21px;
+
+    margin: 20px 0;
+
+    color: #65551d;
+
+    box-shadow: 0 7px 20px rgba(170,140,40,.06);
+}
+
+.alerta strong {
+    color: #856d10;
+}
+
+/* ================= PASSOS ================= */
+
+.step {
+    display: flex;
+
+    gap: 15px;
+
+    margin: 20px 0;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    background: #f8faff;
+
+    border: 1px solid #e8eef8;
+
+    align-items: flex-start;
+}
+
+.number {
+    min-width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(135deg, var(--azul), var(--roxo));
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+
+    box-shadow: 0 5px 12px rgba(79,140,255,.22);
+}
+
+.step p {
+    margin-top: 4px;
+}
+
+/* ================= BOTÕES ================= */
+
+.main-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    padding: 14px 18px;
+
+    margin-top: 15px;
+
+    border: none;
+    border-radius: 13px;
+
+    background: linear-gradient(135deg, var(--azul), var(--roxo));
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        filter .2s ease;
+}
+
+.main-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 9px 22px rgba(79,140,255,.25);
+
+    filter: brightness(1.04);
+}
+
+.main-button:active {
+    transform: translateY(0);
+}
+
+/* ================= FORM ================= */
+
+label {
+    display: block;
+
+    margin-top: 12px;
+
+    font-weight: 650;
+
+    color: var(--texto);
+}
+
+input,
+textarea {
+    width: 100%;
+
+    padding: 14px;
+
+    margin-top: 8px;
+    margin-bottom: 12px;
+
+    border: 1px solid #d5deea;
+    border-radius: 12px;
+
+    background: #fbfcff;
+
+    font-family: inherit;
+    font-size: 15px;
+
+    outline: none;
+
+    transition:
+        border .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+input:focus,
+textarea:focus {
+    background: white;
+
+    border-color: var(--azul);
+
+    box-shadow:
+        0 0 0 4px rgba(79,140,255,.11);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.resultado {
+    background: linear-gradient(135deg, #f6f9ff, #faf9ff);
+
+    border: 1px solid #e1e8f5;
+
+    padding: 17px;
+
+    border-radius: 14px;
+
+    white-space: pre-line;
+
+    line-height: 1.7;
+
+    margin-top: 17px;
+
+    color: #53657d;
+}
+
+/* ================= AJUDA ================= */
+
+.help {
+    background:
+        radial-gradient(circle at 100% 0%, rgba(231,76,60,.08), transparent 30%),
+        linear-gradient(135deg, #fff6f5, #ffffff);
+
+    border-left: 5px solid var(--vermelho);
+}
+
+.help h2,
+.help h3 {
+    color: #bd392e;
+}
+
+/* ================= RESPIRAÇÃO ================= */
+
+.breathing {
+    text-align: center;
+
+    padding: 30px 20px;
+
+    background:
+        radial-gradient(circle, rgba(112,103,255,.08), transparent 60%),
+        #f5f7ff;
+
+    border: 1px solid #e2e8fa;
+
+    border-radius: 20px;
+
+    margin-top: 20px;
+}
+
+.breathing p {
+    color: var(--cinza);
+    line-height: 1.6;
+}
+
+.circle {
+    position: relative;
+
+    width: 130px;
+    height: 130px;
+
+    margin: 25px auto;
+
+    border-radius: 50%;
+
+    background: linear-gradient(135deg, var(--azul), var(--roxo));
+
+    box-shadow:
+        0 0 0 12px rgba(79,140,255,.07),
+        0 0 0 25px rgba(112,103,255,.04),
+        0 15px 35px rgba(79,140,255,.25);
+
+    animation: respirar 6s infinite ease-in-out;
+}
+
+.circle::after {
+    content: "🌬️";
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 35px;
+}
+
+@keyframes respirar {
+
+    0%, 100% {
+        transform: scale(.78);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+
+}
+
+/* ================= RODAPÉ ================= */
+
+footer {
+    text-align: center;
+
+    padding: 30px 20px;
+
+    color: #8492a6;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    background: rgba(255,255,255,.55);
+
+    border-top: 1px solid var(--borda);
+}
+
+footer strong {
+    color: var(--azul-escuro);
+}
+
+/* ================= ACESSIBILIDADE ================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid rgba(79,140,255,.35);
+    outline-offset: 2px;
+}
+
+/* ================= CELULAR ================= */
+
+@media (max-width: 700px) {
+
+    header {
+        padding: 32px 17px 30px;
+    }
+
+    header h1 {
+        font-size: 31px;
+    }
+
+    header p {
+        font-size: 14px;
+    }
+
+    .logo {
+        width: 68px;
+        height: 68px;
+        font-size: 33px;
+    }
+
+    nav {
+        padding: 9px;
+    }
+
+    nav button {
+        padding: 10px 13px;
+        font-size: 12px;
+    }
+
+    .container {
+        margin: 25px auto;
+        padding: 0 13px 40px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .card {
+        padding: 21px;
+    }
+
+    .hero {
+        padding: 32px 18px;
+        border-radius: 22px;
+    }
+
+    .hero-icon {
+        font-size: 50px;
+    }
+
+    .hero h2 {
+        font-size: 25px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .small-card {
+        padding: 20px;
+    }
+
+    .step {
+        padding: 13px;
+    }
+
+    .acolhimento {
+        padding: 21px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= CABEÇALHO ================= -->
+
+<header>
+
+    <div class="logo">
+        🛡️
+    </div>
+
+    <h1>Voz Ativa</h1>
+
+    <p>Combate ao Bullying e promoção do respeito</p>
+
+    <div class="school">
+        🏫 Colégio Santo Antônio — Belém, Pará
+    </div>
+
+</header>
+
+
+<!-- ================= MENU ================= -->
+
+<nav aria-label="Navegação principal">
+
+    <button class="active" onclick="abrirAba('inicio', this)">
+        🏠 Início
+    </button>
+
+    <button onclick="abrirAba('oque', this)">
+        📚 O que é?
+    </button>
+
+    <button onclick="abrirAba('combater', this)">
+        🛡️ Como combater
+    </button>
+
+    <button onclick="abrirAba('anti', this)">
+        🚫 Anti-Bullying
+    </button>
+
+    <button onclick="abrirAba('sofrendo', this)">
+        💬 Estou sofrendo
+    </button>
+
+    <button onclick="abrirAba('estresse', this)">
+        🧘 Anti-estresse
+    </button>
+
+    <button onclick="abrirAba('relato', this)">
+        📝 Meu relato
+    </button>
+
+    <button onclick="abrirAba('ajuda', this)">
+        🆘 Ajuda
+    </button>
+
+</nav>
+
+
+<main class="container">
+
+
+<!-- ================= INÍCIO ================= -->
+
+<section id="inicio" class="tab active">
+
+    <div class="hero">
+
+        <div class="hero-icon">🛡️</div>
+
+        <h2>Você tem voz. 💙</h2>
+
+        <p>
+            O Voz Ativa é um espaço de informação e apoio
+            criado para ajudar estudantes a reconhecer,
+            prevenir e enfrentar situações de bullying.
+        </p>
+
+    </div>
+
+
+    <div class="grid">
+
+        <div class="small-card blue">
+
+            <div class="icon">📚</div>
+
+            <h3>Informação</h3>
+
+            <p>
+                Aprenda a reconhecer diferentes situações
+                de bullying e violência.
+            </p>
+
+        </div>
+
+
+        <div class="small-card green">
+
+            <div class="icon">🤝</div>
+
+            <h3>Respeito</h3>
+
+            <p>
+                Pequenas atitudes podem ajudar a construir
+                um ambiente escolar mais acolhedor.
+            </p>
+
+        </div>
+
+
+        <div class="small-card purple">
+
+            <div class="icon">🛡️</div>
+
+            <h3>Proteção</h3>
+
+            <p>
+                Ninguém precisa enfrentar uma situação
+                difícil sozinho.
+            </p>
+
+        </div>
+
+
+        <div class="small-card">
+
+            <div class="icon">💙</div>
+
+            <h3>Apoio</h3>
+
+            <p>
+                Conversar com um adulto de confiança
+                pode ser um importante primeiro passo.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="alerta">
+
+        <strong>🌟 Uma atitude pode fazer diferença</strong>
+
+        <p>
+            Respeitar, ouvir e procurar ajuda são atitudes
+            que podem contribuir para uma escola mais segura.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= O QUE É ================= -->
+
+<section id="oque" class="tab">
+
+    <div class="hero">
+
+        <div class="hero-icon">📚</div>
+
+        <h2>O que é bullying?</h2>
+
+        <p>
+            Entender o problema é um dos primeiros passos
+            para ajudar a combatê-lo.
+        </p>
+
+    </div>
+
+
+    <div class="card blue">
+
+        <h2>📖 Entendendo o bullying</h2>
+
+        <p>
+            Bullying é uma forma de violência ou agressão
+            que pode acontecer de maneira física, verbal,
+            social ou também pela internet.
+        </p>
+
+        <ul>
+
+            <li>
+                <strong>Intencional:</strong>
+                busca machucar, humilhar ou prejudicar alguém.
+            </li>
+
+            <li>
+                <strong>Repetitivo:</strong>
+                pode acontecer várias vezes ou apresentar
+                risco de repetição.
+            </li>
+
+            <li>
+                <strong>Desequilíbrio de poder:</strong>
+                existe alguma vantagem ou diferença de poder
+                entre as pessoas envolvidas.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <div class="grid">
+
+        <div class="small-card blue">
+
+            <div class="icon">🗣️</div>
+
+            <h3>Verbal</h3>
+
+            <p>
+                Insultos, apelidos ofensivos, ameaças
+                ou comentários para humilhar.
+            </p>
+
+        </div>
+
+
+        <div class="small-card red">
+
+            <div class="icon">👊</div>
+
+            <h3>Físico</h3>
+
+            <p>
+                Agressões ou atitudes que possam
+                machucar fisicamente alguém.
+            </p>
+
+        </div>
+
+
+        <div class="small-card purple">
+
+            <div class="icon">👥</div>
+
+            <h3>Social</h3>
+
+            <p>
+                Exclusão intencional, humilhação pública
+                ou tentativa de afastar alguém do grupo.
+            </p>
+
+        </div>
+
+
+        <div class="small-card yellow">
+
+            <div class="icon">📱</div>
+
+            <h3>Cyberbullying</h3>
+
+            <p>
+                Agressões, humilhações ou perseguições
+                realizadas por meios digitais.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="alerta">
+
+        <strong>🤔 Bullying ou brincadeira?</strong>
+
+        <p>
+            Uma brincadeira saudável envolve respeito
+            e consentimento. Se alguém está sendo
+            humilhado, machucado ou excluído, a situação
+            deve ser levada a sério.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= COMBATER ================= -->
+
+<section id="combater" class="tab">
+
+    <div class="hero">
+
+        <div class="hero-icon">🛡️</div>
+
+        <h2>Como combater</h2>
+
+        <p>
+            Combater o bullying começa com respeito,
+            coragem e empatia.
+        </p>
+
+    </div>
+
+
+    <div class="acolhimento">
+
+        <h3>💙 Você pode fazer a diferença</h3>
+
+        <p>
+            Se você presencia uma situação, não precisa
+            enfrentar tudo sozinho. Procurar ajuda de
+            um adulto pode ser uma atitude importante.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="step">
+
+            <div class="number">1</div>
+
+            <div>
+
+                <h3>🚫 Não incentive</h3>
+
+                <p>
+                    Não ria, compartilhe ou incentive
+                    uma situação de humilhação.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">2</div>
+
+            <div>
+
+                <h3>🗣️ Procure ajuda</h3>
+
+                <p>
+                    Conte o que está acontecendo para
+                    um adulto de confiança.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">3</div>
+
+            <div>
+
+                <h3>💙 Acolha</h3>
+
+                <p>
+                    Se perceber alguém passando por isso,
+                    demonstre apoio e incentive a busca
+                    por ajuda.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">4</div>
+
+            <div>
+
+                <h3>📢 Comunique</h3>
+
+                <p>
+                    Situações de bullying devem ser
+                    comunicadas aos adultos responsáveis
+                    pela proteção dos estudantes.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="grid">
+
+        <div class="small-card blue">
+
+            <div class="icon">👀</div>
+
+            <h3>Se você presencia</h3>
+
+            <p>
+                Não incentive a situação. Procure um
+                adulto responsável e, se for seguro,
+                demonstre apoio à pessoa que está sofrendo.
+            </p>
+
+        </div>
+
+
+        <div class="small-card green">
+
+            <div class="icon">💬</div>
+
+            <h3>Se um colega contar</h3>
+
+            <p>
+                Escute sem julgar e incentive essa pessoa
+                a conversar com um adulto de confiança.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="alerta">
+
+        <strong>⚠️ Não tente resolver tudo sozinho</strong>
+
+        <p>
+            Situações de bullying podem ser difíceis.
+            Adultos responsáveis podem ajudar a encontrar
+            uma maneira mais segura de lidar com o problema.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ANTI BULLYING ================= -->
+
+<section id="anti" class="tab">
+
+    <div class="hero">
+
+        <div class="hero-icon">🚫</div>
+
+        <h2>Campanha Anti-Bullying</h2>
+
+        <p>
+            Uma escola melhor começa quando escolhemos
+            respeito, empatia e responsabilidade.
+        </p>
+
+    </div>
+
+
+    <div class="grid">
+
+        <div class="small-card green">
+
+            <div class="icon">🤝</div>
+
+            <h3>Respeite</h3>
+
+            <p>
+                Trate os colegas com respeito,
+                mesmo quando vocês são diferentes.
+            </p>
+
+        </div>
+
+
+        <div class="small-card blue">
+
+            <div class="icon">👂</div>
+
+            <h3>Escute</h3>
+
+            <p>
+                Às vezes, ouvir alguém pode ser
+                uma grande forma de ajudar.
+            </p>
+
+        </div>
+
+
+        <div class="small-card purple">
+
+            <div class="icon">💬</div>
+
+            <h3>Converse</h3>
+
+            <p>
+                Procure resolver conflitos através
+                do diálogo e com ajuda de adultos
+                quando necessário.
+            </p>
+
+        </div>
+
+
+        <div class="small-card yellow">
+
+            <div class="icon">🌟</div>
+
+            <h3>Inclua</h3>
+
+            <p>
+                Convide colegas para participar
+                e ajude a construir um ambiente
+                mais acolhedor.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="alerta">
+
+        <strong>🌟 Atitude do dia</strong>
+
+        <p>
+            Faça alguém se sentir incluído.
+            Uma pequena atitude de respeito pode
+            melhorar o dia de outra pessoa.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ESTOU SOFRENDO ================= -->
+
+<section id="sofrendo" class="tab">
+
+    <div class="hero">
+
+        <div class="hero-icon">💬</div>
+
+        <h2>Estou sofrendo bullying</h2>
+
+        <p>
+            Você merece ser tratado com respeito,
+            segurança e cuidado.
+        </p>
+
+    </div>
+
+
+    <div class="acolhimento">
+
+        <h3>💙 Você não tem culpa pelo que está acontecendo.</h3>
+
+        <p>
+            O que você sente importa e você merece
+            ser tratado com respeito.
+        </p>
+
+    </div>
+
+
+    <div class="card help">
+
+        <h2>🛡️ O que você pode fazer</h2>
+
+        <ol>
+
+            <li>
+                <strong>Conte para alguém:</strong>
+                procure um adulto de confiança.
+            </li>
+
+            <li>
+                <strong>Converse com a escola:</strong>
+                procure um professor, coordenador
+                ou responsável.
+            </li>
+
+            <li>
+                <strong>Explique a situação:</strong>
+                conte o que aconteceu da maneira
+                mais clara possível.
+            </li>
+
+            <li>
+                <strong>Guarde informações importantes:</strong>
+                em situações digitais, peça ajuda
+                a um adulto para organizar informações
+                que possam ajudar a explicar o ocorrido.
+            </li>
+
+            <li>
+                <strong>Continue procurando ajuda:</strong>
+                se a primeira tentativa não resolver,
+                converse novamente com um adulto.
+            </li>
+
+        </ol>
+
+    </div>
+
+
+    <div class="alerta">
+
+        <strong>😟 “Tenho medo de contar.”</strong>
+
+        <p>
+            Esse sentimento pode acontecer. Você pode
+            começar procurando um adulto em quem confie
+            e explicar que está com medo de falar sobre
+            o que aconteceu.
+        </p>
+
+    </div>
+
+
+    <div class="acolhimento">
+
+        <h3>💙 Lembre-se</h3>
+
+        <p class="frase">
+            Você merece respeito, segurança e apoio.
+        </p>
+
+        <p>
+            Não precisa passar por uma situação difícil
+            sozinho. Falar com alguém pode ser o primeiro
+            passo para receber ajuda.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ANTI ESTRESSE ================= -->
+
+<section id="estresse" class="tab">
+
+    <div class="hero">
+
+        <div class="hero-icon">🧘</div>
+
+        <h2>Anti-estresse</h2>
+
+        <p>
+            Algumas atitudes simples podem ajudar
+            você a desacelerar e organizar os pensamentos.
+        </p>
+
+    </div>
+
+
+    <div class="grid">
+
+        <div class="small-card blue">
+
+            <div class="icon">🌬️</div>
+
+            <h3>Respire</h3>
+
+            <p>
+                Faça algumas respirações lentas e tente
+                prestar atenção no ar entrando e saindo.
+            </p>
+
+        </div>
+
+
+        <div class="small-card green">
+
+            <div class="icon">🚶</div>
+
+            <h3>Faça uma pausa</h3>
+
+            <p>
+                Se possível, afaste-se por alguns minutos
+                de uma situação que esteja deixando você
+                muito tenso.
+            </p>
+
+        </div>
+
+
+        <div class="small-card purple">
+
+            <div class="icon">🎵</div>
+
+            <h3>Relaxe</h3>
+
+            <p>
+                Música, leitura, desenho ou outra atividade
+                tranquila pode ajudar a mudar o foco.
+            </p>
+
+        </div>
+
+
+        <div class="small-card yellow">
+
+            <div class="icon">💬</div>
+
+            <h3>Converse</h3>
+
+            <p>
+                Falar com alguém de confiança pode ajudar
+                a colocar os sentimentos em perspectiva.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="breathing">
+
+        <h3>🌬️ Exercício de respiração</h3>
+
+        <p>
+            Acompanhe o círculo lentamente.
+        </p>
+
+        <div class="circle"></div>
+
+        <p>
+            Inspire quando ele crescer e expire
+            quando ele diminuir.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= RELATO ================= -->
+
+<section id="relato" class="tab">
+
+    <div class="hero">
+
+        <div class="hero-icon">📝</div>
+
+        <h2>Meu relato</h2>
+
+        <p>
+            Organize suas ideias antes de conversar
+            com um adulto de confiança.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>📝 Organizar meu relato</h2>
+
+        <p>
+            Use este espaço apenas para organizar suas ideias
+            antes de conversar com um adulto de confiança.
+        </p>
+
+
+        <label for="relatoOque">
+            O que aconteceu?
+        </label>
+
+        <textarea
+            id="relatoOque"
+            rows="5"
+            placeholder="Conte os fatos de forma objetiva..."
+        ></textarea>
+
+
+        <label for="relatoOnde">
+            Quando e onde aconteceu?
+        </label>
+
+        <input
+            id="relatoOnde"
+            type="text"
+            placeholder="Ex.: terça-feira, durante o intervalo..."
+        >
+
+
+        <label for="relatoQuem">
+            Quem estava presente?
+        </label>
+
+        <input
+            id="relatoQuem"
+            type="text"
+            placeholder="Se souber, informe quem estava presente..."
+        >
+
+
+        <button
+            class="main-button"
+            onclick="gerarResumo()"
+        >
+            ✨ Organizar relato
+        </button>
+
+
+        <div
+            id="resultadoRelato"
+            class="resultado"
+            aria-live="polite"
+        ></div>
+
+    </div>
+
+
+    <div class="alerta">
+
+        <strong>💡 Dica</strong>
+
+        <p>
+            O relato serve para ajudar você a organizar
+            as informações antes de conversar com alguém
+            de confiança.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= AJUDA ================= -->
+
+<section id="ajuda" class="tab">
+
+    <div class="hero">
+
+        <div class="hero-icon">🆘</div>
+
+        <h2>Onde pedir ajuda?</h2>
+
+        <p>
+            Você não precisa descobrir tudo sozinho.
+            Procure um adulto de confiança.
+        </p>
+
+    </div>
+
+
+    <div class="grid">
+
+        <div class="small-card blue">
+
+            <div class="icon">👨‍🏫</div>
+
+            <h3>Na escola</h3>
+
+            <p>
+                Professor, coordenação, direção ou
+                outro profissional de confiança.
+            </p>
+
+        </div>
+
+
+        <div class="small-card green">
+
+            <div class="icon">🏠</div>
+
+            <h3>Em casa</h3>
+
+            <p>
+                Converse com seus responsáveis ou
+                outro adulto de confiança.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="card help">
+
+        <h3>📞 Disque 100</h3>
+
+        <p>
+            Canal oficial para denúncias e proteção
+            de direitos humanos.
+        </p>
+
+        <a
+            href="tel:100"
+            class="main-button"
+            style="background:#e74c3c"
+        >
+            📞 Ligar para o Disque 100
+        </a>
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>🌐 SaferNet</h3>
+
+        <p>
+            Para situações relacionadas à violência
+            e segurança no ambiente digital.
+        </p>
+
+        <a
+            href="https://new.safernet.org.br/denuncie"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="main-button"
+            style="background:#27ae60"
+        >
+            🌐 Acessar SaferNet
+        </a>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- ================= RODAPÉ ================= -->
+
+<footer>
+
+    🛡️ <strong>Voz Ativa</strong><br>
+
+    Colégio Santo Antônio — Belém, Pará<br>
+
+    Informação • Respeito • Empatia • Proteção
+
+</footer>
+
+
+<script>
+
+/* ================= TROCA DE ABAS ================= */
+
+function abrirAba(id, botao) {
+
+    const abas = document.querySelectorAll(".tab");
+
+    abas.forEach(function(aba) {
+        aba.classList.remove("active");
+    });
+
+
+    const botoes = document.querySelectorAll("nav button");
+
+    botoes.forEach(function(btn) {
+        btn.classList.remove("active");
+    });
+
+
+    const abaSelecionada = document.getElementById(id);
+
+    if (abaSelecionada) {
+        abaSelecionada.classList.add("active");
+    }
+
+
+    if (botao) {
+        botao.classList.add("active");
+    }
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* ================= ORGANIZAR RELATO ================= */
+
+function gerarResumo() {
+
+    const oque =
+        document.getElementById("relatoOque").value.trim();
+
+    const onde =
+        document.getElementById("relatoOnde").value.trim();
+
+    const quem =
+        document.getElementById("relatoQuem").value.trim();
+
+    const resultado =
+        document.getElementById("resultadoRelato");
+
+
+    if (!oque || !onde) {
+
+        resultado.innerText =
+            "⚠️ Preencha pelo menos o que aconteceu e quando/onde aconteceu.";
+
+        return;
+    }
+
+
+    resultado.innerText =
+`📋 RESUMO DO RELATO
+
+📌 O que aconteceu:
+${oque}
+
+📍 Quando e onde:
+${onde}
+
+👥 Pessoas presentes:
+${quem || "Não informado"}
+
+────────────────────
+
+💙 Este texto pode ser mostrado a um
+responsável, professor ou coordenador
+para ajudar a explicar a situação.`;
+
+}
+
+</script>
+
+</body>
+  </html>

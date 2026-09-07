@@ -1,0 +1,25 @@
+{
+  "background_color": "rgb(29, 43, 97)",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "Voz Ativa",
+  "orientation": "any",
+  "scope": "/Voz-ativa/",
+  "short_name": "Voz Ativa",
+  "start_url": "/Voz-ativa/",
+  "theme_color": "rgb(49, 93, 204)",
+  "id": "/Voz-ativa/",
+  "description": "Projeto do Colégio Santo Antônio para prevenção ao bullying, promoção do respeito e apoio aos estudantes.",
+  "icons": [
+    {
+      "src": "launchericon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "launchericon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

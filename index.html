@@ -1925,6 +1925,16 @@ para ajudar a explicar a situação.`;
 }
 
 </script>
-
+    
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./pwabuilder-sw.js")
+      .then(() => console.log("Service Worker registrado!"))
+      .catch((erro) => console.error("Erro no Service Worker:", erro));
+  });
+}
+</script>
+    
 </body>
   </html>
